@@ -10,8 +10,27 @@
         </label>
         <input id="name" type="text" formControlName="name">
     </div>
+
+    <div *ngIf="checkoutForm.controls['name'].invalid && (checkoutForm.controls['name'].dirty || checkoutForm.controls['name'].touched)" class="alert alert-danger">
+      <div *ngIf="checkoutForm.controls['name'].errors?.['forbiddenName']">
+        Name should be valid and least longer than 1 character.
+      </div>
+  </div>
     
-    <div>
+  <div>
+    <label for="email">
+      Email
+    </label>
+    <input id="email" type="text" formControlName="email">
+  </div>  
+
+  <div *ngIf="checkoutForm.controls['email'].invalid && (checkoutForm.controls['email'].dirty || checkoutForm.controls['email'].touched)" class="alert alert-danger">
+    <div *ngIf="checkoutForm.controls['email'].errors?.['forbiddenName']">
+      Enter valid email.
+    </div>
+</div>
+  
+  <div>
         <label for="address">
           Address
         </label>
